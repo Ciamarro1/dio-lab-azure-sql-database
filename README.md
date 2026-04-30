@@ -1,3 +1,6 @@
+![Azure](https://img.shields.io/badge/Microsoft-Azure-blue)
+![GitHub](https://img.shields.io/badge/Documentação-GitHub-black)
+![Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
 # Configuração de Banco de Dados na Microsoft Azure
 
 ## Descrição do Projeto
@@ -71,10 +74,137 @@ O grupo de recursos funciona como um contêiner lógico para organizar os servi�
 Durante a configuração, é importante definir:
 
 - Nome do grupo de recursos;
-- Região onde os recursos serão criados;
-- Organização dos serviços relacionados ao mesmo projeto.
 
-Exemplo de nome:
+### 3. Escolha do Serviço de Banco de Dados
 
-```text
+Para o laboratório, o foco foi a configuração de uma instância de banco de dados no Azure.
+
+Entre as opções disponíveis, é possível encontrar:
+
+Banco de Dados SQL do Azure;
+Instância Gerenciada de SQL do Azure;
+SQL Server em Máquinas Virtuais.
+
+Cada opção atende a um tipo de necessidade. Para projetos mais simples, o Banco de Dados SQL pode ser suficiente. Para ambientes com maior compatibilidade com SQL Server tradicional, a Instância Gerenciada pode ser mais adequada.
+
+### 4. Configuração Básica da Instância
+
+Durante a criação da instância, alguns campos importantes precisam ser configurados:
+
+Assinatura do Azure;
+Grupo de recursos;
+Nome da instância;
+Região;
+Método de autenticação;
+Usuário administrador;
+Senha;
+Configurações de computação e armazenamento.
+
+Essas informações definem como o recurso será criado e acessado.
+
+### 5. Configuração de Rede
+
+A configuração de rede é uma etapa importante, pois define como a instância poderá ser acessada.
+
+Alguns pontos observados:
+
+Rede virtual;
+Sub-rede;
+Regras de firewall;
+Permissões de acesso;
+Segurança da conexão.
+
+Em ambientes reais, essa etapa deve ser feita com bastante cuidado para evitar exposição indevida do banco de dados.
+
+### 6. Revisão e Criação do Recurso
+
+Antes de criar a instância, o Azure apresenta uma tela de revisão com todas as configurações escolhidas.
+
+Nessa etapa, é importante verificar:
+
+Nome do recurso;
+Região;
+Custos estimados;
+Configurações de segurança;
+Configurações de rede;
+Tipo de serviço selecionado.
+
+Após a validação, o recurso pode ser criado.
+
+### 7. Monitoramento da Implantação
+
+Após iniciar a criação do recurso, o Azure exibe o andamento da implantação.
+
+Dependendo do tipo de banco de dados escolhido, a criação pode levar alguns minutos ou até mais tempo em serviços mais robustos, como uma Instância Gerenciada de SQL.
+
+Boas Práticas Observadas
+
+Durante o laboratório, algumas boas práticas foram identificadas:
+
+Utilizar nomes claros para os recursos;
+Criar grupos de recursos separados por projeto;
+Escolher a região mais adequada para o uso;
+Verificar custos antes de criar recursos;
+Configurar regras de firewall com cuidado;
+Evitar deixar serviços ativos sem necessidade;
+Documentar cada etapa do processo;
+Excluir recursos após os testes para evitar cobranças.
+Dicas Importantes
+Atenção aos Custos
+
+Antes de criar qualquer recurso no Azure, é importante verificar o custo estimado. Alguns serviços podem gerar cobranças mesmo quando não estão sendo utilizados diretamente.
+
+### Organização dos Recursos
+
+Usar uma boa nomenclatura facilita muito o gerenciamento dos serviços no portal.
+
+## Exemplo:
+
 rg-dio-lab-azure-sql
+sql-dio-lab-db
+vnet-dio-lab
+Segurança
+
+Nunca compartilhe senhas, strings de conexão ou dados sensíveis em repositórios públicos.
+
+Caso precise documentar exemplos, utilize valores fictícios.
+
+## Exemplo:
+
+Server=tcp:meu-servidor.database.windows.net;
+User ID=usuario_exemplo;
+Password=senha_exemplo;
+Limpeza do Ambiente
+
+Após finalizar o laboratório, é recomendado excluir os recursos criados caso eles não sejam mais necessários. Isso ajuda a evitar custos indesejados.
+
+Possíveis Prints para Adicionar
+
+Caso queira complementar o repositório, é possível criar uma pasta chamada /images e adicionar capturas de tela como:
+
+Tela inicial do Portal Azure;
+Criação do grupo de recursos;
+Tela de configuração do banco de dados;
+Tela de revisão e criação;
+Implantação concluída;
+Visão geral do recurso criado.
+
+### Aprendizados Finais
+
+Este laboratório foi importante para compreender, na prática, como funciona a criação de uma instância de banco de dados dentro da plataforma Microsoft Azure.
+
+Além da parte técnica, o desafio também reforçou a importância da documentação. Saber explicar o que foi feito, quais decisões foram tomadas e quais cuidados são necessários é uma habilidade essencial para qualquer profissional de tecnologia.
+
+### Com esse projeto, foi possível praticar:
+
+Uso do Portal Azure;
+Criação e organização de recursos;
+Conceitos de banco de dados em nuvem;
+Boas práticas de segurança;
+Documentação técnica com Markdown;
+Publicação de conteúdo técnico no GitHub.
+Referências
+Microsoft Learn - Azure SQL Managed Instance
+Microsoft Learn - Criar Instância Gerenciada de SQL do Azure
+GitHub Docs - Sintaxe básica de escrita e formatação
+Documentação Oficial da Microsoft Azure
